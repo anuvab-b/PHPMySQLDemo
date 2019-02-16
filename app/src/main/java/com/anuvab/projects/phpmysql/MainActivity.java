@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+            finish();
+            startActivity(new Intent(this,ProfileActivity.class));
+            return;
+        }
+
         editTextEmail=findViewById(R.id.editTextEmail);
         editTextUserName=findViewById(R.id.editTextUsername);
         editTextPassword=findViewById(R.id.editTextPassword);
